@@ -24,6 +24,7 @@ REPOS = [
     "gocodeup/codeup-setup-script",
     "gocodeup/movies-application",
     "torvalds/linux",
+    "microsoft/appcenter-sdk-apple"
 ]
 
 headers = {"Authorization": f"token {github_token}", "User-Agent": github_username}
