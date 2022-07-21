@@ -69,7 +69,11 @@ def remove_stopwords(string, extra_words=[], exclude_words=[]):
     #get english stopwords from nltk
     stop_words = stopwords.words('english')
     new_stopwords = ["github", "com", "www", "http", "the", "a", "it", "they", "apple", "youtube",
-                     "build", "status"]
+                     "build", "status", 'sup', "introduction", "intro", "developer", "samplecode",
+                    "user", "experience", "400", "200", "100", "&#9;", "kbd", "td", "tr", "org", 
+                    "wiki", "wikipedia", "3rdparty", "license", "0", "version", "maximkulkin", "22", 
+                    "33","44", "p", "e", "printername", "nsbp", "touch", "id", "error", "working", 
+                    "green", "githubusercontent", "45159366", ]
     stop_words.extend(new_stopwords)
     
     #Add extra words to be removed to the stop word list
