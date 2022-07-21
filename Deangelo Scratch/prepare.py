@@ -58,6 +58,39 @@ def lemmatize(string):
     
     return string_lemmatize
 
+def remove_stopwords(string, extra_words=[], exclude_words=[]):
+    """
+    This function will take in a string, filter out stop words from the nltk standard english list 
+    as well as any other extra words, and return a version of the text without these stopwords.
+    It includes optional paramaters allowing the user to add extra words to remove 
+    or to exclude words from the stopword list.
+    """
+    
+    #get english stopwords from nltk
+    stop_words = stopwords.words('english')
+    new_stopwords = ["github", "com", "www", "http", "the", "a", "it", "they", "apple", "youtube",
+                     "build", "status"]
+    stop_words.extend(new_stopwords)
+    
+    #Add extra words to be removed to the stop word list
+    for word in extra_words:
+        stop_words.append(word)
+    
+    #Remove words to be excluded from the stop word list
+    for word in exclude_words:
+        stop_words.remove(word)
+    
+    #Create a list of words to be checked by splitting the string
+    words = string.split()
+    
+    #Filter out all of the stop words
+    filtered_words = [word for word in words if word not in stop_words]
+    
+    #Join the list of filtered words into a string
+    filtered_string = ' '.join(filtered_words)
+    
+    return filtered_string
+
 def advanced_clean(df):
     string = df.readme_contents
     
@@ -67,9 +100,10 @@ def advanced_clean(df):
         cleaned = basic_clean(string[i])
         token = tokenize(cleaned)
         lemmatized = lemmatize(token)
-        lis.append(lemmatized)
+        filtered = remove_stopwords(lemmatized)
+        lis.append(filtered)
         i+=1
-    return lis 
+    return lis  
 
 def create_df(df):
     cleaned_df = advanced_clean(df)
