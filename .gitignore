@@ -4,4 +4,3 @@ env.py
 __pycache__
 *.csv
 .idea/
-*.json
