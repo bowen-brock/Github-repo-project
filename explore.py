@@ -12,7 +12,7 @@ import nltk.sentiment
 from wordcloud import WordCloud
 
 
-def top_5_languages():
+def top_6_languages():
     # read json
     df = pd.read_json('data.json')
     df = p.create_df(df)
@@ -26,6 +26,9 @@ def top_5_languages():
 
     # Objective-C programming language
     objective_c = df[df.language == 'Objective-C']
+    
+    # python programming language
+    python = df[df.language == 'Python']
 
     # Java programming language
     java = df[df.language == 'Java']
@@ -33,7 +36,7 @@ def top_5_languages():
     # C programming language
     c = df[df.language == 'C']
     
-    return swift, javascript, objective_c, java, c
+    return swift, javascript, objective_c, python, java, c
 
 
 def create_trigram(df):
@@ -46,7 +49,7 @@ def create_trigram(df):
 def word_cloud(trigram, string):
     #Generate a wordcloud
     #First create a dictionary for the fequencies of the bigrams
-    data = {k[0] + ' ' + k[1]: count for k, count in trigram.to_dict().items()}
+    data = {k[0] + ' ' + k[1] + ' ' + k[2]: count for k, count in trigram.to_dict().items()}
     #Create the wordcloud
     #Change the figsize before creating the wordcloud
     plt.figure(figsize=(10, 5))
