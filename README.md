@@ -1,7 +1,9 @@
 #### Group Project By: Deangelo Bowen & Kayla Brock | Codeup | July 25, 2022
 
 # A Bite Out Of Apple
-
+## Contributors
+- [DeAngelo Bowen](https://github.com/DeangeloBowen1)
+- [Kayla Brock](https://github.com/Kayfj41901)
 #### A project using classification and natural language processing to predict repository programming language.
 
 <hr style="border-top: 1px groove LightCyan ; margin-top: 1px; margin-bottom: 1px"></hr>
